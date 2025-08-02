@@ -59,9 +59,43 @@
             ]
           },
           {
-            "group": "Endpoints",
+            "group": "Profile & Authentication",
             "pages": [
-              "api-reference/profile/get-profile"
+              "api-reference/profile/get-profile",
+              "api-reference/profile/update-profile"
+            ]
+          },
+          {
+            "group": "Dashboard",
+            "pages": [
+              "api-reference/dashboard/get-dashboard"
+            ]
+          },
+          {
+            "group": "Parking Spots",
+            "pages": [
+              "api-reference/parking-spots/list-spots",
+              "api-reference/parking-spots/create-spot",
+              "api-reference/parking-spots/update-spot",
+              "api-reference/parking-spots/delete-spot"
+            ]
+          },
+          {
+            "group": "Availabilities",
+            "pages": [
+              "api-reference/availabilities/list-availabilities",
+              "api-reference/availabilities/create-availability",
+              "api-reference/availabilities/update-availability",
+              "api-reference/availabilities/delete-availability"
+            ]
+          },
+          {
+            "group": "Claims",
+            "pages": [
+              "api-reference/claims/list-claims",
+              "api-reference/claims/create-claim",
+              "api-reference/claims/update-claim",
+              "api-reference/claims/delete-claim"
             ]
           }
         ]

@@ -28,7 +28,7 @@ All endpoints require JWT authentication except where noted. Include your token 
 Authorization: Bearer YOUR_JWT_TOKEN
 ```
 
-<Card title="Get Started with Authentication" icon="key" href="/authentication">
+<Card title="Get Started with Authentication" icon="key" href="/api-reference/authentication">
   Learn how to obtain and use JWT tokens for API access
 </Card>
 
@@ -104,9 +104,9 @@ All errors follow a consistent format:
 }
 ```
 
-<Card title="Error Handling Guide" icon="triangle-exclamation" href="/guides/errors">
-  Learn how to handle different error scenarios gracefully
-</Card>
+<Note>
+  The API uses standard HTTP status codes to indicate the success or failure of requests. See the error examples in each endpoint documentation for details.
+</Note>
 
 ## Rate Limiting
 
@@ -199,32 +199,9 @@ Manage parking spot reservations
 
 ## OpenAPI Specification
 
-Complete machine-readable API specification available in multiple formats:
-
-<CardGroup cols={3}>
-  <Card title="JSON Format" icon="code" href="/openapi.json">
-    OpenAPI 3.0 specification in JSON
-  </Card>
-  <Card title="YAML Format" icon="file-code" href="/openapi.yaml">
-    OpenAPI 3.0 specification in YAML
-  </Card>
-  <Card title="TypeScript Types" icon="code" href="/types/api.ts">
-    Generated TypeScript type definitions
-  </Card>
-</CardGroup>
-
-## SDKs & Code Generation
-
-Generate client libraries from our OpenAPI specification:
-
-<CardGroup cols={2}>
-  <Card title="JavaScript/TypeScript" icon="js" href="/sdks/javascript">
-    Official JavaScript/TypeScript SDK
-  </Card>
-  <Card title="Python" icon="python" href="/sdks/python">
-    Python client library examples
-  </Card>
-</CardGroup>
+<Card title="OpenAPI Specification" icon="code" href="/api-reference/openapi.json">
+  Complete machine-readable API specification in OpenAPI 3.0 format
+</Card>
 
 ## Interactive Playground
 
@@ -243,18 +220,11 @@ Real-time notifications for parking events:
 - Claim submissions and updates
 - Admin approvals
 
-<Card title="Webhook Documentation" icon="webhook" href="/guides/webhooks">
-  Learn about webhook setup and event handling
-</Card>
-
 ## Need Help?
 
 <CardGroup cols={2}>
-  <Card title="Quickstart Guide" icon="rocket" href="/quickstart">
+  <Card title="Quickstart Guide" icon="rocket" href="/api-reference/quickstart">
     Get up and running in 5 minutes
-  </Card>
-  <Card title="Code Examples" icon="code" href="/examples/common-workflows">
-    Real-world integration patterns
   </Card>
   <Card title="Community Support" icon="comments" href="https://github.com/ylapscher/harbor-parking/discussions">
     Connect with other developers

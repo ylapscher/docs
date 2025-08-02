@@ -1,0 +1,134 @@
+---
+title: "Update Availability"
+api: "PUT https://harbor-parking.vercel.app/api/availabilities/{id}"
+description: "Modify availability window details"
+---
+
+## Overview
+
+This endpoint allows parking spot owners to update their availability windows.
+
+<Warning>
+You cannot update an availability that has already been claimed.
+</Warning>
+
+## Authentication
+
+<Snippet file="auth-required.mdx" />
+
+## Path Parameters
+
+<ParamField path="id" type="string" required>
+  Unique identifier of the availability to update
+</ParamField>
+
+## Request Body
+
+<ParamField body="start_time" type="string" optional>
+  Updated availability start time (ISO 8601 format)
+</ParamField>
+
+<ParamField body="end_time" type="string" optional>
+  Updated availability end time (ISO 8601 format)
+</ParamField>
+
+## Response
+
+<ResponseField name="availability" type="object" required>
+  Updated availability object
+
+  <Expandable title="Availability Object">
+    <ResponseField name="id" type="string" required>
+      Unique availability identifier (UUID)
+    </ResponseField>
+    <ResponseField name="spot_id" type="string" required>
+      ID of the associated parking spot
+    </ResponseField>
+    <ResponseField name="start_time" type="string" required>
+      Availability start time (ISO 8601)
+    </ResponseField>
+    <ResponseField name="end_time" type="string" required>
+      Availability end time (ISO 8601)
+    </ResponseField>
+    <ResponseField name="is_claimed" type="boolean" required>
+      Whether this availability has been claimed
+    </ResponseField>
+    <ResponseField name="created_at" type="string" required>
+      Availability creation timestamp (ISO 8601)
+    </ResponseField>
+    <ResponseField name="updated_at" type="string" required>
+      Availability last update timestamp (ISO 8601)
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -X PUT "https://harbor-parking.vercel.app/api/availabilities/789e0123-e89b-12d3-a456-426614174002" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "start_time": "2024-01-16T08:00:00Z",
+    "end_time": "2024-01-16T18:00:00Z"
+  }'
+```
+
+```javascript JavaScript
+const availabilityId = "789e0123-e89b-12d3-a456-426614174002";
+const response = await fetch(`https://harbor-parking.vercel.app/api/availabilities/${availabilityId}`, {
+  method: 'PUT',
+  headers: {
+    'Authorization': `Bearer ${yourJwtToken}`,
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    start_time: "2024-01-16T08:00:00Z",
+    end_time: "2024-01-16T18:00:00Z"
+  })
+});
+
+const result = await response.json();
+```
+
+</CodeGroup>
+
+## Example Response
+
+<ResponseExample>
+
+```json Success Response
+{
+  "availability": {
+    "id": "789e0123-e89b-12d3-a456-426614174002",
+    "spot_id": "123e4567-e89b-12d3-a456-426614174000",
+    "start_time": "2024-01-16T08:00:00Z",
+    "end_time": "2024-01-16T18:00:00Z",
+    "is_claimed": false,
+    "created_at": "2024-01-15T10:30:00Z",
+    "updated_at": "2024-01-16T11:45:00Z"
+  }
+}
+```
+
+</ResponseExample>
+
+## Error Responses
+
+<ResponseExample>
+
+```json 400 Bad Request - Already Claimed
+{
+  "error": "Cannot update a claimed availability"
+}
+```
+
+```json 403 Forbidden
+{
+  "error": "You can only update availabilities for your own spots"
+}
+```
+
+</ResponseExample>

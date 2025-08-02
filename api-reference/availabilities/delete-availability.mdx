@@ -1,0 +1,95 @@
+---
+title: "Delete Availability"
+api: "DELETE https://harbor-parking.vercel.app/api/availabilities/{id}"
+description: "Remove an availability window"
+---
+
+## Overview
+
+This endpoint allows parking spot owners to delete their availability windows.
+
+<Warning>
+You cannot delete an availability that has already been claimed. Cancel the associated claim first.
+</Warning>
+
+## Authentication
+
+<Snippet file="auth-required.mdx" />
+
+## Path Parameters
+
+<ParamField path="id" type="string" required>
+  Unique identifier of the availability to delete
+</ParamField>
+
+## Response
+
+<ResponseField name="message" type="string" required>
+  Confirmation message
+</ResponseField>
+
+<ResponseField name="deleted_availability_id" type="string" required>
+  ID of the deleted availability
+</ResponseField>
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -X DELETE "https://harbor-parking.vercel.app/api/availabilities/789e0123-e89b-12d3-a456-426614174002" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+```javascript JavaScript
+const availabilityId = "789e0123-e89b-12d3-a456-426614174002";
+const response = await fetch(`https://harbor-parking.vercel.app/api/availabilities/${availabilityId}`, {
+  method: 'DELETE',
+  headers: {
+    'Authorization': `Bearer ${yourJwtToken}`,
+    'Content-Type': 'application/json'
+  }
+});
+
+const result = await response.json();
+```
+
+</CodeGroup>
+
+## Example Response
+
+<ResponseExample>
+
+```json Success Response
+{
+  "message": "Availability deleted successfully",
+  "deleted_availability_id": "789e0123-e89b-12d3-a456-426614174002"
+}
+```
+
+</ResponseExample>
+
+## Error Responses
+
+<ResponseExample>
+
+```json 400 Bad Request - Already Claimed
+{
+  "error": "Cannot delete a claimed availability. Cancel the claim first."
+}
+```
+
+```json 403 Forbidden
+{
+  "error": "You can only delete availabilities for your own spots"
+}
+```
+
+```json 404 Not Found
+{
+  "error": "Availability not found"
+}
+```
+
+</ResponseExample>

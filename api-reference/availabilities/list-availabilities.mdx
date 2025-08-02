@@ -1,0 +1,120 @@
+---
+title: "List Availabilities"
+api: "GET https://harbor-parking.vercel.app/api/availabilities"
+description: "Get availability windows with filtering options"
+---
+
+## Overview
+
+This endpoint retrieves a list of parking spot availability windows with optional filtering capabilities.
+
+## Authentication
+
+<Snippet file="auth-required.mdx" />
+
+## Query Parameters
+
+<ParamField query="spot_id" type="string" optional>
+  Filter availabilities by specific parking spot ID
+</ParamField>
+
+<ParamField query="owner_id" type="string" optional>
+  Filter availabilities by spot owner ID
+</ParamField>
+
+<ParamField query="start_date" type="string" optional>
+  Filter availabilities starting from this date (ISO 8601)
+</ParamField>
+
+<ParamField query="end_date" type="string" optional>
+  Filter availabilities ending before this date (ISO 8601)
+</ParamField>
+
+<ParamField query="limit" type="number" optional default="50">
+  Maximum number of availabilities to return
+</ParamField>
+
+<ParamField query="offset" type="number" optional default="0">
+  Number of availabilities to skip for pagination
+</ParamField>
+
+## Response
+
+<ResponseField name="availabilities" type="array" required>
+  Array of availability objects
+
+  <Expandable title="Availability Object">
+    <ResponseField name="id" type="string" required>
+      Unique availability identifier (UUID)
+    </ResponseField>
+    <ResponseField name="spot_id" type="string" required>
+      ID of the associated parking spot
+    </ResponseField>
+    <ResponseField name="start_time" type="string" required>
+      Availability start time (ISO 8601)
+    </ResponseField>
+    <ResponseField name="end_time" type="string" required>
+      Availability end time (ISO 8601)
+    </ResponseField>
+    <ResponseField name="is_claimed" type="boolean" required>
+      Whether this availability has been claimed
+    </ResponseField>
+    <ResponseField name="created_at" type="string" required>
+      Availability creation timestamp (ISO 8601)
+    </ResponseField>
+    <ResponseField name="updated_at" type="string" required>
+      Availability last update timestamp (ISO 8601)
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="total" type="number" required>
+  Total number of availabilities matching the filters
+</ResponseField>
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -X GET "https://harbor-parking.vercel.app/api/availabilities?limit=10&is_claimed=false" \
+  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+```javascript JavaScript
+const response = await fetch('https://harbor-parking.vercel.app/api/availabilities?limit=10&is_claimed=false', {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${yourJwtToken}`,
+    'Content-Type': 'application/json'
+  }
+});
+
+const availabilitiesData = await response.json();
+```
+
+</CodeGroup>
+
+## Example Response
+
+<ResponseExample>
+
+```json Success Response
+{
+  "availabilities": [
+    {
+      "id": "789e0123-e89b-12d3-a456-426614174002",
+      "spot_id": "123e4567-e89b-12d3-a456-426614174000",
+      "start_time": "2024-01-16T09:00:00Z",
+      "end_time": "2024-01-16T17:00:00Z",
+      "is_claimed": false,
+      "created_at": "2024-01-15T10:30:00Z",
+      "updated_at": "2024-01-15T10:30:00Z"
+    }
+  ],
+  "total": 1
+}
+```
+
+</ResponseExample>
