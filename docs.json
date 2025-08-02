@@ -1,122 +1,75 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Harbor Parking API",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#3B82F6",
+    "light": "#60A5FA",
+    "dark": "#1E40AF"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
+        "group": "Getting Started",
+        "pages": [
+          "api-reference/introduction",
+          "api-reference/authentication",
+          "api-reference/quickstart"
         ]
       },
       {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication",
-              "api-reference/quickstart"
-            ]
-          },
-          {
-            "group": "Profile & Authentication",
-            "pages": [
-              "api-reference/profile/get-profile",
-              "api-reference/profile/update-profile"
-            ]
-          },
-          {
-            "group": "Dashboard",
-            "pages": [
-              "api-reference/dashboard/get-dashboard"
-            ]
-          },
-          {
-            "group": "Parking Spots",
-            "pages": [
-              "api-reference/parking-spots/list-spots",
-              "api-reference/parking-spots/create-spot",
-              "api-reference/parking-spots/update-spot",
-              "api-reference/parking-spots/delete-spot"
-            ]
-          },
-          {
-            "group": "Availabilities",
-            "pages": [
-              "api-reference/availabilities/list-availabilities",
-              "api-reference/availabilities/create-availability",
-              "api-reference/availabilities/update-availability",
-              "api-reference/availabilities/delete-availability"
-            ]
-          },
-          {
-            "group": "Claims",
-            "pages": [
-              "api-reference/claims/list-claims",
-              "api-reference/claims/create-claim",
-              "api-reference/claims/update-claim",
-              "api-reference/claims/delete-claim"
-            ]
-          }
+        "group": "Profile & Authentication",
+        "pages": [
+          "api-reference/profile/get-profile",
+          "api-reference/profile/update-profile"
+        ]
+      },
+      {
+        "group": "Dashboard",
+        "pages": [
+          "api-reference/dashboard/get-dashboard"
+        ]
+      },
+      {
+        "group": "Parking Spots",
+        "pages": [
+          "api-reference/parking-spots/list-spots",
+          "api-reference/parking-spots/create-spot",
+          "api-reference/parking-spots/update-spot",
+          "api-reference/parking-spots/delete-spot"
+        ]
+      },
+      {
+        "group": "Availabilities",
+        "pages": [
+          "api-reference/availabilities/list-availabilities",
+          "api-reference/availabilities/create-availability",
+          "api-reference/availabilities/update-availability",
+          "api-reference/availabilities/delete-availability"
+        ]
+      },
+      {
+        "group": "Claims",
+        "pages": [
+          "api-reference/claims/list-claims",
+          "api-reference/claims/create-claim",
+          "api-reference/claims/update-claim",
+          "api-reference/claims/delete-claim"
         ]
       }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Harbor Parking App",
+          "href": "https://harbor-parking.vercel.app",
+          "icon": "house"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "GitHub",
+          "href": "https://github.com/ylapscher/harbor-parking",
+          "icon": "github"
         }
       ]
     }
@@ -128,15 +81,10 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Harbor Parking App",
+        "href": "https://harbor-parking.vercel.app"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    ]
   },
   "contextual": {
     "options": [
@@ -152,9 +100,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/ylapscher/harbor-parking"
     }
   }
 }

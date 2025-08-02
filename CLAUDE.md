@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Mintlify documentation site using MDX files with YAML frontmatter. The site follows the Mintlify Starter Kit structure and includes documentation on AI tools like Claude Code, Cursor, and Windsurf.
+This is the Harbor Parking API documentation site built with Mintlify. It contains comprehensive REST API documentation for the Harbor Parking application, which enables parking spot sharing within residential communities.
 
 ## Commands
 
@@ -32,32 +32,48 @@ mint broken-links
 ## Architecture
 
 - **Configuration**: `docs.json` - Controls navigation, theme, colors, and site settings
-- **Content**: MDX files with YAML frontmatter in organized directories
+- **Content**: MDX files with YAML frontmatter for API endpoint documentation
 - **Structure**:
-  - `/ai-tools/` - Documentation for AI development tools
-  - `/api-reference/` - API documentation and endpoint examples  
-  - `/essentials/` - Core documentation features (markdown, code, images, etc.)
-  - `/snippets/` - Reusable content snippets
-  - `/images/` and `/logo/` - Static assets
+  - `/api-reference/` - All API documentation and endpoint examples
+    - `/profile/` - User profile management endpoints
+    - `/dashboard/` - Dashboard data endpoints
+    - `/parking-spots/` - Parking spot CRUD operations
+    - `/availabilities/` - Availability window management
+    - `/claims/` - Parking spot reservation system
+  - `/snippets/` - Reusable content snippets (auth warnings, etc.)
+  - `/logo/` - Harbor Parking branding assets
 
 ## Content Standards
 
 ### MDX File Requirements
-- YAML frontmatter with `title` and `description` fields
-- Use Mintlify components (Card, CardGroup, Steps, etc.)
+- YAML frontmatter with `title`, `description`, and `api` fields for endpoints
+- Use Mintlify components (Card, CardGroup, Steps, ResponseField, etc.)
 - Language tags on all code blocks
 - Relative paths for internal links
+- Consistent authentication snippets using `<Snippet file="auth-required.mdx" />`
+
+### API Documentation Structure
+- **Introduction** - API overview and getting started
+- **Authentication** - JWT authentication guide
+- **Quickstart** - Quick examples for common workflows
+- **Endpoint Groups** - Organized by resource type (Profile, Parking Spots, etc.)
+- Each endpoint includes: overview, auth requirements, parameters, response format, examples
 
 ### Navigation Structure
-- Configured in `docs.json` under `navigation.tabs`
-- Two main tabs: "Guides" and "API reference"
-- Groups organize related pages within tabs
+- Single-level navigation organized by functional groups
+- No tabs - simplified structure focusing only on API reference
+- Groups: Getting Started, Profile & Authentication, Dashboard, Parking Spots, Availabilities, Claims
+
+## Branding
+- **Name**: Harbor Parking API
+- **Colors**: Blue theme (#3B82F6 primary, #60A5FA light, #1E40AF dark)
+- **Theme**: "quill" for clean, professional appearance
+- **Links**: Harbor Parking app and GitHub repository
 
 ## Prerequisites
 - Node.js version 19 or higher
 - Mintlify CLI (`npm i -g mint`)
 
 ## Deployment
-- Automatic deployment via Mintlify GitHub app
-- Push to main branch triggers production deployment
 - Local preview available at `http://localhost:3000`
+- Deployed documentation should be hosted at a docs subdomain

@@ -1,44 +1,53 @@
-# Mintlify Starter Kit
+# Harbor Parking API Documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+Complete REST API documentation for the Harbor Parking application. This documentation provides comprehensive guidance for integrating with the Harbor Parking API to manage parking spot sharing within residential communities.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Features
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
-
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+- **Authentication** - JWT-based authentication with Supabase
+- **Parking Spots** - CRUD operations for parking spot management
+- **Availabilities** - Time-based availability window management
+- **Claims** - Parking spot reservation system
+- **Dashboard** - User dashboard with statistics and recent activity
 
 ## Development
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview the documentation locally:
 
-```
+```bash
 npm i -g mint
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+Start the development server:
 
-```
+```bash
 mint dev
 ```
 
-View your local preview at `http://localhost:3000`.
+View the documentation at `http://localhost:3000`.
 
-## Publishing changes
+## API Overview
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+The Harbor Parking API is a REST API that enables parking spot sharing functionality. Key features include:
 
-## Need help?
+- User profile management
+- Parking spot registration and verification
+- Availability scheduling
+- Spot claiming and reservation
+- Real-time dashboard data
 
-### Troubleshooting
+## Base URL
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+```
+https://harbor-parking.vercel.app/api
+```
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
-- [Mintlify community](https://mintlify.com/community)
+## Authentication
+
+All API endpoints require JWT authentication. See the [Authentication Guide](https://docs.harbor-parking.com/authentication) for details.
+
+## Links
+
+- **Harbor Parking App**: https://harbor-parking.vercel.app
+- **GitHub Repository**: https://github.com/ylapscher/harbor-parking
+- **API Documentation**: https://docs.harbor-parking.com
